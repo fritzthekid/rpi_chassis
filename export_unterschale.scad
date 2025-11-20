@@ -1,4 +1,4 @@
 // Export: Unterschale (Shell-Split Mode)
-use <./mymy_rpi_enclosure.scad>
+use <./rpi_enclosure.scad>
 
 unterschale();

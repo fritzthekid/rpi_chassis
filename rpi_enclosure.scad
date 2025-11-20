@@ -9,7 +9,7 @@
 
 // Gehäuse Außenmaße
 gehaeuse_breite = 120;      // Breite des Gehäuses
-gehaeuse_tiefe = 150;       // Tiefe des Gehäuses  
+gehaeuse_tiefe = 110;       // Tiefe des Gehäuses  
 gehaeuse_hoehe = 100;       // Höhe des Gehäuses
 wandstaerke = 3;            // Wandstärke
 ecken_radius = 4;           // Radius der abgerundeten Ecken
@@ -32,7 +32,7 @@ slot_abstand = 20;          // Vertikaler Abstand zwischen Slots
 schienen_tiefe = gehaeuse_tiefe - 2 * wandstaerke - 2;  // Tiefe der Einschubschienen (durchgehend)
 
 // Einschubschienen Design
-schienen_breite = 3;        // Breite der Führungsschiene
+schienen_breite = 7;        // Breite der Führungsschiene
 schienen_hoehe = 2;         // Höhe der unteren Führung
 schienen_clearance = 0.3;   // Freiraum über PCB (für leichtes Einschieben)
 
@@ -147,6 +147,7 @@ module unterschale() {
 
 // Grundgehäuse mit integriertem Deckel und abgerundeten Ecken
 module gehaeuse_basis_mit_deckel() {
+  difference() {
     difference() {
         // Außenhülle mit abgerundeten Ecken
         rounded_cube([gehaeuse_breite, gehaeuse_tiefe, gehaeuse_hoehe], ecken_radius);
@@ -166,7 +167,11 @@ module gehaeuse_basis_mit_deckel() {
         translate([wandstaerke + panel_inset, gehaeuse_tiefe - panel_nut_tiefe - 1, wandstaerke + panel_inset]) {
             cube([innen_breite - 2*panel_inset, panel_nut_tiefe + 2, innen_hoehe - 2*panel_inset]);
         }
+    };
+    translate([2*wandstaerke,2*wandstaerke,wandstaerke]) {
+      cube([gehaeuse_breite-4*wandstaerke, gehaeuse_tiefe-4*wandstaerke, gehaeuse_hoehe-2*wandstaerke]);
     }
+  }
 }
 
 // Hilfsfunktion: Würfel mit abgerundeten Ecken

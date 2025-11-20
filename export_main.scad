@@ -1,5 +1,5 @@
 // Export: Hauptgehäuse
-use <./mymy_rpi_enclosure.scad>
+use <./rpi_enclosure.scad>
 
 // Export-Konfiguration für Hauptgehäuse
 shell_split_mode = false;
