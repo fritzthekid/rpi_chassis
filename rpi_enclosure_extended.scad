@@ -160,8 +160,8 @@ module frame() {
 //
 module chasing_frame(frame_extension_x = 7,frame_extension_y = 7, frame_extension_z = 2) {
     f_ecken_radius = 1;
-    frame_shift = 20;
-    translate([0, frame_shift, 0])
+    //frame_shift = 20;
+    //translate([0, frame_shift, 0])
     difference() {
         translate([-frame_extension_x, 0, -frame_extension_y]) 
             rounded_cube([gehaeuse_breite+2*frame_extension_x, frame_extension_z, 
